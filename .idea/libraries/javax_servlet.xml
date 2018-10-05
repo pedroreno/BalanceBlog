@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="javax.servlet">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-digester3-3.2/commons-digester3-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-digester3-3.2/commons-digester3-3.2-with-deps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/libs/commons-digester3-3.2/commons-digester3-3.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/commons-digester3-3.2/commons-digester3-3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
