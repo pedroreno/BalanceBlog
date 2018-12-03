@@ -1,0 +1,92 @@
+@import url("/stylesheets/estrutura.css");
+
+/*---------------------------------------------------------divPosts--------------------------------------------------------------*/
+
+#divPosts {
+    position: relative;
+}
+/*---------------header---------------------------*/
+
+.tituloPost {
+    background: #fff;
+    width: 98%;
+    height: 10%;
+    margin: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 1px rgba(0,0,0, 0.50);
+}
+
+.titulo {
+    font-family: Merienda-Regular, cursive;
+    font-size: 37px;
+}
+
+/*--------------------------------------------------*/
+
+#img {
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    height: 30%;
+    max-width: 95%;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+
+p {
+    font-size: 18px;
+    font-weight: 100;
+    width: 90%;
+    margin:32px;
+    padding: 0;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+.rodapePost {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 0;
+    background: #fff;
+    box-shadow: 0 3px 4px 3px rgba(0,0,0, 0.50);
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    bottom: 5px;
+}
+
+.rodapePost h3 {
+    position: absolute;
+    margin: 0;
+    top: 5px;
+    left: 5px;
+    font-size: 20px;
+    font-family: Merienda-Regular, cursive;
+}
+
+.rodapePost .tag {
+    position: relative;
+    float: left;
+    top: 47px;
+    margin: 4px 5px;
+    font-size: 17px;
+    font-family: Roboto-Regular, sans-serif;
+    color: #e3170a;
+}
+
+.tag:link {
+    color: #e3170a;
+}
+
+.tag:visited {
+    color: #9a031e;
+}
+
+.tag:hover {
+    color: #F70000;
+    cursor: pointer;
+}
+
+.tag:active {
+    color: #9a031e;
+}

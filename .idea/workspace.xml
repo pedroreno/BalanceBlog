@@ -7,57 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="468ee9a7-544b-4dc5-86c7-7979f2ff52aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/Atividades.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/dao/interfacesDAO/InterCategoriaPostDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/service/interfacesService/InterServiceUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/scripts/contato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/scripts/sobre.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/stylesheets/estrutura.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BalanceBlog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceBlog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd/balanceBlog_bd.mwb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd/tabelas.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/contato.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/contato.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/contato.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/scripts/jquery-1.11.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/scripts/jquery-1.11.3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/scripts/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/scripts/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/sobre.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/sobre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/sobre.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/contato.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/contato.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/sobre.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BalanceBlog_war_exploded/stylesheets/sobre.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Servlets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/EnumPapeis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Identificador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Papel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PapelDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PapelUsuarioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/interfacesDAO/InterPapelDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/interfacesDAO/InterPapelUsuarioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/interfacesDAO/InterUsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/interfacesDAO/InterUsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/service/InterServiceUsuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/service/ServiceUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/service/ServiceUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/contato.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/contato.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/contato.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/jquery-1.11.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripts/jquery-1.11.3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripts/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sobre.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sobre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/sobre.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/stylesheets/contato.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/stylesheets/contato.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/stylesheets/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/stylesheets/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/stylesheets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/stylesheets/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/stylesheets/sobre.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/stylesheets/sobre.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -192,7 +142,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
+            <state relative-caret-position="125">
               <caret line="355" lean-forward="true" selection-start-line="355" selection-end-line="355" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -709,12 +659,20 @@
       <workItem from="1543756503104" duration="12659000" />
       <workItem from="1543776043019" duration="5338000" />
       <workItem from="1543828696322" duration="11412000" />
-      <workItem from="1543854090965" duration="8014000" />
+      <workItem from="1543854090965" duration="8383000" />
     </task>
+    <task id="LOCAL-00001" summary="Blog de artes marciais">
+      <created>1543862784384</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543862784384</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286328000" />
+    <option name="totallyTimeSpent" value="286697000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -727,7 +685,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23381877" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -746,7 +703,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32970452" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32970452" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32970452" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50242716" side_tool="true" weight="0.34059098" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50242716" side_tool="true" visible="true" weight="0.34059098" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32970452" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32970452" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -1161,7 +1118,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
+        <state relative-caret-position="125">
           <caret line="355" lean-forward="true" selection-start-line="355" selection-end-line="355" />
           <folding>
             <element signature="imports" expanded="true" />

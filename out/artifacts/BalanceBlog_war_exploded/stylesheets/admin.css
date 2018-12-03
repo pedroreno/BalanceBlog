@@ -1,0 +1,130 @@
+@import url("/stylesheets/estrutura.css");
+
+/*--------------------------DISPLAY PRINCIPAL--------------------------------------------*/
+#divPosts {
+    display: block;
+}
+
+.divsGerencia {
+    position: relative;
+    display: block;
+    height: 160px;
+    width: 90%;
+    margin: 30px;
+    background: #FAF9F9;
+    border: 2px solid #e3170a;
+
+}
+
+.btnsGerencia {
+    height: 60px;
+    width: 400px;
+    margin: 10px;
+    padding: 2px 5px;
+    font-size: 20px;
+    font-family: Merienda-Regular, cursive;
+    color: #e3170a;
+    border: 2px solid #e3170a;
+    border-radius: 2px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .5);
+    transition: .2s;
+}
+
+
+.btnsGerencia:hover {
+    background-color: #e3170a;
+    color: #000;
+    cursor: pointer;
+}
+
+h3 {
+    font-family: Merienda-Regular, cursive;
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #444444;
+    border-radius: 3px;
+    transition: .3s;
+    transition-timing-function: ease-in;
+    color: #444444;
+}
+
+input:focus {
+    border-bottom: 2px solid #e3170a;
+    box-shadow: none;
+}
+
+.inputSubmit {
+    width: 150px;
+    height: 35px;
+    margin: 15px 0;
+    padding: 2px 5px;
+    font-size: 20px;
+    font-family: Merienda-Regular, cursive;
+    color: #e3170a;
+    border: 2px solid #e3170a;
+    border-radius: 2px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .5);
+    transition: .2s;
+}
+
+.inputSubmit:hover {
+    background-color: #e3170a;
+    color: #000;
+    cursor: pointer;
+}
+
+.ou {
+    color: #e3170a;
+}
+
+span {
+    color: #e3170a;
+}
+
+
+/*---------------------------------------ADICIONAR POST----------------------------------------*/
+
+#divAddPost {
+    height: 1000px;
+}
+
+#divAddPost h3 {
+    margin-top: 35px;
+}
+
+#tituloPost {
+    width: 50%;
+}
+
+textarea {
+    min-height: 350px;
+    max-height: 500px;
+    min-width: 75%;
+    max-width: 95%;
+    border: 2px solid #444444;
+    border-radius: 3px;
+    transition: border-bottom .3s;
+    transition-timing-function: ease-in;
+    color: #444444;
+    decoration: none;
+}
+
+textarea:focus {
+    border: 2px solid #e3170a;
+    box-shadow: none;
+}
+
+
+/*------------------------------------EXCLUIR POST E EXCLUIR USUARIO-----------------------------------------*/
+
+#divExcluirPost, #divExcluirUsuario {
+    height: 300px;
+}
+
