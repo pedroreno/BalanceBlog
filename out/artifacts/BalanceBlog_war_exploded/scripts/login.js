@@ -1,8 +1,5 @@
 $(document).ready(function(){
-  $("#divCadastro").hide();
-});
-
-$("#muda").click(function(){
-  $("#divLogin").hide();
-  $("#divCadastro").show();
+  $("#muda").on('click', function () {
+      window.location.href = "cadastro.jsp";
+  });
 });

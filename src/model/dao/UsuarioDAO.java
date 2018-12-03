@@ -2,13 +2,9 @@ package model.dao;
 
 import model.Usuario;
 import model.dao.interfacesDAO.InterUsuarioDAO;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO implements InterUsuarioDAO {
@@ -22,7 +18,6 @@ public class UsuarioDAO implements InterUsuarioDAO {
 
     public UsuarioDAO(){
         pegarConexao();
-
     }
 
     public void pegarConexao(){
@@ -31,7 +26,7 @@ public class UsuarioDAO implements InterUsuarioDAO {
 
             conexao = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
-            System.out.println("Conectado com sucesso...  Usuario DAO ...");
+            System.out.println("Conectado com sucesso...  UsuarioDAO");
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException("Erro de conexão... UsuarioDAO: ", e);
@@ -45,89 +40,114 @@ public class UsuarioDAO implements InterUsuarioDAO {
     @Override
     public Usuario insert(Usuario usuario) {
         try{
-            PreparedStatement sql = conexao.prepareStatement("INSERT INTO usuario(id, nome, senha, email, papeis)" +
-                    " VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement sql = conexao.prepareStatement("INSERT INTO usuario (nome_usuario, senha_usuario, email_usuario, papel_usuario)" +
+                    " VALUES (?, ?, ?, ?)");
 
-            sql.setLong(1, usuario.getId());
-            sql.setString(2, usuario.getNome());
-            sql.setString(3, usuario.getSenha());
-            sql.setString(4, usuario.getEmail());
-            sql.setArray(5, (Array) usuario.getPapeis());
+            sql.setString(1, usuario.getNome());
+            sql.setString(2, usuario.getSenha());
+            sql.setString(3, usuario.getEmail());
+            sql.setString(4, usuario.getPapel());
 
-            ResultSet rs = sql.executeQuery();
+            sql.executeUpdate();
             System.out.println("Conectando ... insert Usuario");
-            rs.next();
 
             sql.close();
-            rs.close();
         } catch (SQLException e) {
             System.out.println("Erro de conexão... insert Usuario");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario findById(int id) {
+        Usuario usuario = null;
+
+        try{
+            PreparedStatement sql = conexao.prepareStatement("select * from balanceblog.usuario where id_usuario = ?");
+            sql.setInt(1, id);
+            ResultSet rs = sql.executeQuery();
+            System.out.println("Conectado ... findById UsuarioDAO");
+            rs.next();
+
+            if(!rs.first()) return null;
+            else {
+                usuario = new Usuario();
+                usuario.setId(rs.getInt("id_usuario"));
+                usuario.setNome(rs.getString("nome_usuario"));
+                usuario.setSenha(rs.getString("senha_usuario"));
+                usuario.setEmail(rs.getString("email_usuario"));
+
+                sql.close();
+                rs.close();
+
+                return usuario;
+            }
+        } catch (Exception e) {
+            System.out.println("\nErro de conexão... findByID UsuarioDAO");
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario findByName(String nome) {
+        Usuario usuario = null;
+        try {
+            PreparedStatement sql = conexao.prepareStatement("select * from balanceblog.usuario where nome_usuario = ?");
+            sql.setString(1, nome);
+            ResultSet rs = sql.executeQuery();
+            System.out.println("Conectado... findByName UsuarioDAO");
+            rs.next();
+
+            if(!rs.first()) return null;
+            else {
+                usuario = new Usuario();
+                usuario.setId(rs.getInt("id_usuario"));
+                usuario.setNome(rs.getString("nome_usuario"));
+                usuario.setSenha(rs.getString("senha_usuario"));
+                usuario.setEmail(rs.getString("email_usuario"));
+
+                sql.close();
+                rs.close();
+
+                return usuario;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("\nErro de conexão ... findByName UsuarioDAO");
         }
 
         return null;
     }
 
     @Override
-    public Usuario findById(Long id) {
-        Usuario usuario = null;
-
-        try{
-            PreparedStatement sql = conexao.prepareStatement("select * from balanceblog.usuario where id_usuario = ?");
-            sql.setString(1, id.toString());
-            ResultSet rs = sql.executeQuery();
-            System.out.println("Conectado ... findById UsuarioDAO");
-            rs.next();
-
-            usuario = new Usuario();
-            usuario.setId(rs.getLong(1));
-            usuario.setNome(rs.getString(2));
-            usuario.setSenha(rs.getString(3));
-            usuario.setEmail(rs.getString(4));
-
-            sql.close();
-            rs.close();
-
-            return usuario;
-
-        } catch (Exception e) {
-            System.out.println("\nErro de conexão... findByID UsuarioDAO");
-        }
-        return usuario;
-    }
-
-    @Override
-    public Usuario findByName(String name) {
-        Usuario usuario = null;
-        try {
-            PreparedStatement sql = conexao.prepareStatement("select * from balanceblog.usuario where nome_usuario = ?");
-            sql.setString(1, name);
-            ResultSet rs = sql.executeQuery();
-            System.out.println("Conectado... findByName UsuarioDAO");
-            rs.next();
-
-            usuario = new Usuario();
-            usuario.setId(rs.getLong("id_usuario"));
-            usuario.setNome(rs.getString("nome_usuario"));
-            usuario.setSenha(rs.getString("senha_usuario"));
-            usuario.setEmail(rs.getString("email_usuario"));
-
-            sql.close();
-            rs.close();
-
-            return usuario;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("\nErro de conexão ... findByName UsuarioDAO");
-        }
-
-        return usuario;
-
-
-    }
-
-    @Override
     public List<Usuario> findAll() {
+        List<Usuario> usuarios = new ArrayList();
+        Usuario usuario;
+        ResultSet rs;
+        try{
+            PreparedStatement sql = conexao.prepareStatement("SELECT * FROM usuario");
+            rs = sql.executeQuery();
+            System.out.println("Conectado... findAll UsuarioDAO");
+
+            while(rs.next()) {
+                usuario = new Usuario();
+                usuario.setId(rs.getInt("id_usuario"));
+                usuario.setNome(rs.getString("nome_usuario"));
+                usuario.setSenha(rs.getString("senha_usuario"));
+                usuario.setEmail(rs.getString("email_usuario"));
+                usuario.setPapel(rs.getString("papel_usuario"));
+
+                usuarios.add(usuario);
+            }
+            rs.close();
+            sql.close();
+            return usuarios;
+
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... findAll UsuarioDAO");
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -137,12 +157,36 @@ public class UsuarioDAO implements InterUsuarioDAO {
     }
 
     @Override
-    public boolean delete(Usuario usuario) {
-        return false;
+    public void deleteById(int idUsuario) {
+        try {
+            PreparedStatement sql = conexao.prepareStatement("DELETE FROM usuario WHERE id_usuario = ?");
+            sql.setInt(1, idUsuario);
+
+            sql.executeUpdate();
+            System.out.println("Conectado... deleteById UsuarioDAO");
+
+            sql.close();
+
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... deleteById UsuarioDAO");
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public void deleteByName(String nomeUsuario) {
+        try {
+            PreparedStatement sql = conexao.prepareStatement("DELETE FROM usuario WHERE nome_usuario = ?");
+            sql.setString(1, nomeUsuario);
+
+            sql.executeUpdate();
+            System.out.println("Conectado... deleteByName UsuarioDAO");
+
+            sql.close();
+
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... deleteByName UsuarioDAO");
+            e.printStackTrace();
+        }
     }
 }

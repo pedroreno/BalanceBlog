@@ -1,36 +1,26 @@
 package model;
 
-import java.util.List;
+public class Usuario{
+    private int id;
+    private String nome, senha, email, papel;
 
-public class Usuario extends Identificador{
-    private Long id;
-    private String nome, senha, email;
-    private List<Papel> papeis;
+    public Usuario(){}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Papel> getPapeis() {
-        return papeis;
-    }
-
-    public void setPapeis(List<Papel> papeis) {
-        this.papeis = papeis;
-    }
-
-    public Usuario(){};
-    public Usuario(Long id, String nome, String senha, String email, List<Papel> papeis) {
-        super(id);
+    public Usuario(String nome, String senha, String email, String papel) {
+        this.setId(id);
         this.setNome(nome);
         this.setSenha(senha);
         this.setEmail(email);
-        this.setPapeis(papeis);
+        this.setPapel(papel);
     }
+
+    public String getPapel() { return papel; }
+
+    public void setPapel(String papel) { this.papel = papel; }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getNome() {
         return nome;

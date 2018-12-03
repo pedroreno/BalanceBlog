@@ -1,4 +1,11 @@
-<%--
+<%@ page import="model.Usuario" %>
+<%@ page import="model.Post" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static java.lang.System.out" %>
+<%@ page import="model.service.interfacesService.InterServicePost" %>
+<%@ page import="model.service.ServicePost" %>
+<%@ page import="static java.lang.System.setOut" %>
+<%@ page import="controller.Servlet" %><%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 18/09/2018
@@ -10,8 +17,18 @@
 <%
     String contexto = request.getContextPath();
     if(!contexto.equals("")) contexto += "/";
-%>
 
+    Usuario usuarioLogado     = (Usuario) session.getAttribute("usuarioLogado");
+    int idUsuarioLogado       = usuarioLogado.getId();
+    String papelUsuarioLogado = usuarioLogado.getPapel();
+%>
+<%!
+
+    public void redirecionarPost(int idPost) {
+        Servlet.DirecionarPost dp = new Servlet.DirecionarPost();
+
+    }
+%>
 <html>
 <head>
     <!--definindo o tipo dos caracteres do doc-->
@@ -26,12 +43,11 @@
     <link rel="icon" href="">
     <!--definindo título da página-->
     <title>Balance blog</title>
-    <!--linkando com scripts-->
-    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="scripts/"></script>
+
 
 </head>
-<body>
+<body onload="setarBotoes()">
+<div id="${papelUsuarioLogado}" class="qDificil"></div>
 <div id="divGeral">
 
 
@@ -44,9 +60,10 @@
         <nav id="navBar">
 
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a id="btnHome" href="home.jsp">Home</a></li>
+                <li><a id="btnSobre" href="sobre.jsp">Sobre</a></li>
+                <li><a id="btnContato" href="contato.jsp">Contato</a></li>
+                <li><a id="btnADM" href="admin.jsp">ADM</a></li>
             </ul>
 
         </nav>
@@ -57,23 +74,16 @@
 
         <div id="divPosts">
 
-            <article class="post">
-                <div class="cabeçalhoPost">
-                    <div class="dataPost"><h1 class="data">17</br>SET</h1></div><div class="tituloPost"><h1 class="titulo">A HISTÓRIA DO TAEKWONDO</h1></div>
-                </div>
-                <div id="img"></div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <button class="btnPost">Ler mais</button>
-                <footer class="rodapePost">
-                    <h3>Tags:</h3>
-                    <a class="tag">#Taekwondo</a><a class="tag">#História</a>
-                </footer>
-            </article>
+            <%
+                InterServicePost sPost = new ServicePost();
+                List<Post> posts = sPost.findAll();
+
+                for(Post p:posts){%>
+
+                    <%=p.printarPost()%>
+            <%
+                }
+            %>
 
         </div>
 
@@ -97,5 +107,30 @@
 
 </div>
 
+<!--linkando com scripts-->
+<script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="${contexto}scripts/home.js"></script>
+
+<script>
+
+
+    function setarBotoes() {
+        var button = $(".btnPost")
+        alert("Estou no setarBotoes :)");
+        $('#divPosts').on('click', button,function () {
+
+            $.ajax({
+                method: 'post',
+                url: '/DirecionarPost.action',
+                data: {
+                    idPost: $(this).attr(id)
+                }
+            });
+
+            alert("O ZÉ É GAY");
+        });
+    }
+
+</script>
 </body>
 </html>

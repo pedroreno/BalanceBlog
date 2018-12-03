@@ -6,10 +6,12 @@
 
 
     <display-name>BalanceBlog</display-name>
+    
 
+    <!--                          Login                               -->
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>controller.Servlets</servlet-class>
+        <servlet-class>controller.Servlet$Login</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -17,10 +19,86 @@
         <url-pattern>/Login.action</url-pattern>
     </servlet-mapping>
 
+    <!--                       Cadastrar                                -->
+    <servlet>
+        <servlet-name>Cadastro</servlet-name>
+        <servlet-class>controller.Servlet$Cadastro</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Cadastro</servlet-name>
+        <url-pattern>/Cadastro.action</url-pattern>
+    </servlet-mapping>
+
+    <!--                     Listar Usuários                           -->
+    <servlet>
+        <servlet-name>ListarUsuarios</servlet-name>
+        <servlet-class>controller.Servlet$ListarUsuarios</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListarUsuarios</servlet-name>
+        <url-pattern>/ListarUsuarios.action</url-pattern>
+    </servlet-mapping>
+
+    <!--                     Adicionar Post                          -->
+    <servlet>
+        <servlet-name>AdicionarPost</servlet-name>
+        <servlet-class>controller.Servlet$AdicionarPost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdicionarPost</servlet-name>
+        <url-pattern>/AdicionarPost.action</url-pattern>
+    </servlet-mapping>
+    
+    <!--                       Excluir Post                           -->
+    <servlet>
+        <servlet-name>ExcluirPost</servlet-name>
+        <servlet-class>controller.Servlet$ExcluirPost</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ExcluirPost</servlet-name>
+        <url-pattern>/ExcluirPost.action</url-pattern>
+    </servlet-mapping>
+
+    <!--                     Excluir Usuário                         -->
+    <servlet>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <servlet-class>controller.Servlet$ExcluirUsuario</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <url-pattern>/ExcluirUsuario.action</url-pattern>
+    </servlet-mapping>
+    
+    <!--                     Direcionar post                       -->
+    <servlet>
+        <servlet-name>DirecionarPost</servlet-name>
+        <servlet-class>controller.Servlet$DirecionarPost</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DirecionarPost</servlet-name>
+        <url-pattern>/DirecionarPost.action</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
+        <welcome-file>contato.jsp</welcome-file>
+        <welcome-file>sobre.jsp</welcome-file>
         <welcome-file>stylesheet/login.css</welcome-file>
+        <welcome-file>stylesheet/normalize.css</welcome-file>
+        <welcome-file>stylesheet/home.css</welcome-file>
+        <welcome-file>stylesheet/contato.css</welcome-file>
+        <welcome-file>stylesheet/sobre.css</welcome-file>
+        <welcome-file>stylesheet/estrutura.css</welcome-file>
+        <welcome-file>scripts/jquery-1.11.3.min.js</welcome-file>
+        <welcome-file>scripts/login.js</welcome-file>
     </welcome-file-list>
 
 </web-app>

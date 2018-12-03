@@ -40,39 +40,19 @@
 <form action="Login.action" method="post" id="formLogin">
 
     <h2>Login</h2>
-    <input name="loginNome" required type="text" placeholder="Login">
+    <input name="loginNome" id="loginNome" required type="text" placeholder="Login">
 
     <h2>Senha</h2>
-    <input name="loginSenha" required type="password" placeholder="Senha">
+    <input name="loginSenha" id="loginSenha" required type="password" placeholder="Senha">
 
     <br />
     <input type="submit" value="login" id="inputLogin">
-
-    <h4 id="muda">Não possui login? Cadastre-se aqui!</h4>
 
     <br />
     <span name="erro">${erro}</span>
 </form>
 
-<!--
-<form id="formCadastro">
-
-    <h3>Digite seu nome de login</h3>
-    <input name="cadNome" type="text" placeholder="Login"/>
-
-    <h3>Digite sua senha</h3>
-    <input name="cadSenha" type="password" />
-
-    <h3>Digite sua senha novamente</h3>
-    <input name="cadSenha2" type="password"/>
-
-    <h3>Digite seu Email</h3>
-    <input name="inEmail" />
-    <br />
-    <button id="btnCadastrar">Cadastrar-se</button>
-
-
-</form>-->
+<button id="muda">Cadastre-se aqui!</button>
 
 </body>
 </html>

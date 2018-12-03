@@ -26,10 +26,11 @@
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
-    <script type="text/javascript" src="scripts/${contexto}jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="scripts/"></script>
+    <script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="${contexto}scripts/contato.js"></script>
 </head>
 <body>
+<div id="${papelUsuarioLogado}" class="qDificil"></div>
 <div id="divGeral">
 
 
@@ -42,9 +43,10 @@
         <nav id="navBar">
 
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a id="btnHome" href="home.jsp">Home</a></li>
+                <li><a id="btnSobre" href="sobre.jsp">Sobre</a></li>
+                <li><a id="btnContato" href="contato.jsp">Contato</a></li>
+                <li><a id="btnADM" href="admin.jsp">ADM</a></li>
             </ul>
 
         </nav>
