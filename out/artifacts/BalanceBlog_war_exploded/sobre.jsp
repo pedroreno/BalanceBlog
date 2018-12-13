@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.Usuario" %><%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 05/10/2018
@@ -10,6 +10,9 @@
 <%
     String contexto = request.getContextPath();
     if(!contexto.equals("")) contexto += "/";
+
+    Usuario usuarioLogado     = (Usuario) session.getAttribute("usuarioLogado");
+    String papelUsuarioLogado = usuarioLogado.getPapel();
 %>
 
 <html>
@@ -23,7 +26,7 @@
     <!--linkando com a folha de estilo-->
     <link rel="stylesheet" href="stylesheets/${contexto}sobre.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
@@ -31,7 +34,7 @@
     <script type="text/javascript" src="${contexto}scripts/sobre.js"></script>
 </head>
 <body>
-<div id="${papelUsuarioLogado}" class="qDificil"></div>
+<div id="<%=papelUsuarioLogado%>" class="qDificil"></div>
 <div id="divGeral">
 
 

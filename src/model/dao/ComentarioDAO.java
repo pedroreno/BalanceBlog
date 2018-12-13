@@ -4,6 +4,8 @@ import model.Comentario;
 import model.dao.interfacesDAO.InterComentarioDAO;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComentarioDAO implements InterComentarioDAO {
     Connection conexao;
@@ -86,26 +88,50 @@ public class ComentarioDAO implements InterComentarioDAO {
     }
 
     @Override
-    public Comentario[] deleteByUsuario(String usuario) {
-        int idUsuario;
-        try{
-            PreparedStatement sql = conexao.prepareStatement("SELECT * FROM usuario WHERE nome_usuario = ?");
-            sql.setString(1, usuario);
-            ResultSet rs = sql.executeQuery();
-            System.out.println("Conectado... deleteByUsuario ComentarioDAO");
-            rs.next();
+    public List<Comentario> findByUsuarioID(int id) {
+        return null;
+    }
 
-            if(!rs.first()) return null;
-            else {
-                idUsuario = rs.getInt("id_usuario");
-                rs.close();
-                sql.close();
+    @Override
+    public List<Comentario> findByPostID(int idPost) {
+        List<Comentario> comentarios = new ArrayList();
+        try {
+            PreparedStatement sql = conexao.prepareStatement("SELECT * FROM comentario WHERE id_post = ?");
+            sql.setInt(1,idPost);
+            ResultSet rs = sql.executeQuery();
+            System.out.println("Conectado... findByPostId ComentarioDAO");
+
+            while(rs.next()) {
+                Comentario comentario = new Comentario();
+                comentario.setIdComentario(rs.getInt("id_comentario"));
+                comentario.setIdUsuario(rs.getInt("id_usuario"));
+                comentario.setIdPost(rs.getInt("id_post"));
+                comentario.setTexto(rs.getString("texto_comentario"));
+
+                comentarios.add(comentario);
             }
 
-            sql = conexao.prepareStatement("DELETE FROM comentario WHERE id_usuario = ?");
+            return comentarios;
+
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... findByPostId ComentarioDAO");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Comentario> findByUsuarioPost(int idUsuario, int idPost) {
+        return null;
+    }
+
+    @Override
+    public void deleteByUsuario(int idUsuario) {
+        try{
+            PreparedStatement sql = conexao.prepareStatement("DELETE FROM comentario WHERE id_usuario = ?");
             sql.setInt(1, idUsuario);
             sql.executeUpdate();
-            System.out.println("Deletado com sucesso... deleteByUsuario ComentarioDAO");
+            System.out.println("Conectado com sucesso... deleteByUsuario ComentarioDAO");
             sql.close();
 
 
@@ -113,23 +139,22 @@ public class ComentarioDAO implements InterComentarioDAO {
             System.out.println("Erro de conexão... deleteByUsuario ComentarioDAO");
             e.printStackTrace();
         }
-        return null;
-
     }
 
     @Override
-    public Comentario[] findByUsuarioID(int id) {
-        return new Comentario[0];
-    }
+    public void deleteById(int idPost) {
+        try {
+            PreparedStatement sql = conexao.prepareStatement("DELETE FROM comentario WHERE id_comentario = ?");
+            sql.setInt(1, idPost);
 
-    @Override
-    public Comentario[] findByPostID(int id) {
-        return new Comentario[0];
-    }
+            sql.executeUpdate();
+            System.out.println("Conectado... deleteById ComentarioDAO");
 
-    @Override
-    public Comentario[] findByUsuarioPost(int idUsuario, int idPost) {
-        return new Comentario[0];
-    }
+            sql.close();
 
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... deleteById ComentarioDAO");
+            e.printStackTrace();
+        }
+    }
 }

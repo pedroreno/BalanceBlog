@@ -84,6 +84,39 @@
         <servlet-name>DirecionarPost</servlet-name>
         <url-pattern>/DirecionarPost.action</url-pattern>
     </servlet-mapping>
+    
+    <!--                     Adicionar Comentario                  -->
+    <servlet>
+        <servlet-name>AdicionarComentario</servlet-name>
+        <servlet-class>controller.Servlet$AdicionarComentario</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AdicionarComentario</servlet-name>
+        <url-pattern>/AdicionarComentario.action</url-pattern>
+    </servlet-mapping>
+    
+    <!--                     Excluir Comentario                    -->
+    <servlet>
+        <servlet-name>ExcluirComentario</servlet-name>
+        <servlet-class>controller.Servlet$ExcluirComentario</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ExcluirComentario</servlet-name>
+        <url-pattern>/ExcluirComentario.action</url-pattern>
+    </servlet-mapping>
+
+    <!--                    Direcionar Pagina Categoria           -->
+    <servlet>
+        <servlet-name>DirecionarPaginaCategoria</servlet-name>
+        <servlet-class>controller.Servlet$DirecionarPaginaCategoria</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DirecionarPaginaCategoria</servlet-name>
+        <url-pattern>/DirecionarPaginaCategoria.action</url-pattern>
+    </servlet-mapping>
 
 
     <welcome-file-list>

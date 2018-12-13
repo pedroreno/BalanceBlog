@@ -5,6 +5,8 @@ import model.dao.ComentarioDAO;
 import model.dao.interfacesDAO.InterComentarioDAO;
 import model.service.interfacesService.InterServiceComentario;
 
+import java.util.List;
+
 public class ServiceComentario implements InterServiceComentario {
     @Override
     public void insert(Comentario comentario) {
@@ -20,30 +22,35 @@ public class ServiceComentario implements InterServiceComentario {
     }
 
     @Override
-    public Comentario[] deleteByUsuario(String usuario) {
+    public List<Comentario> findByUsuarioID(int id) {
         InterComentarioDAO icDAO = new ComentarioDAO();
-        Comentario[] comentarios = icDAO.deleteByUsuario(usuario);
+        List<Comentario> comentarios = icDAO.findByUsuarioID(id);
         return comentarios;
     }
 
     @Override
-    public Comentario[] findByUsuarioID(int id) {
-        InterComentarioDAO icDAO = new ComentarioDAO();
-        Comentario[] comentarios = icDAO.findByUsuarioID(id);
+    public List<Comentario> findByPostID(int id) {
+        InterComentarioDAO cDAO = new ComentarioDAO();
+        List<Comentario> comentarios = cDAO.findByPostID(id);
         return comentarios;
     }
 
     @Override
-    public Comentario[] findByPostID(int id) {
+    public List<Comentario> findByUsuarioPost(int idUsuario, int idPost) {
         InterComentarioDAO icDAO = new ComentarioDAO();
-        Comentario[] comentarios = icDAO.findByPostID(id);
+        List<Comentario> comentarios = icDAO.findByUsuarioPost(idUsuario, idPost);
         return comentarios;
     }
 
     @Override
-    public Comentario[] findByUsuarioPost(int idUsuario, int idPost) {
-        InterComentarioDAO icDAO = new ComentarioDAO();
-        Comentario[] comentarios = icDAO.findByUsuarioPost(idUsuario, idPost);
-        return comentarios;
+    public void deleteByUsuario(int idUsuario) {
+        InterComentarioDAO cDAO = new ComentarioDAO();
+        cDAO.deleteByUsuario(idUsuario);
+    }
+
+    @Override
+    public void deleteById(int idComentario) {
+        InterComentarioDAO cDAO = new ComentarioDAO();
+        cDAO.deleteById(idComentario);
     }
 }

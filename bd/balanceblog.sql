@@ -15,7 +15,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE `post` (
   `id_post` int(11) NOT NULL AUTO_INCREMENT,
-  `imagem_post` mediumblob,
+  `imagem_post` varchar(500) NOT NULL,
   `titulo_post` varchar(50) NOT NULL,
   `texto_post` longtext NOT NULL,
   `id_usuario` int(11) NOT NULL,
@@ -56,14 +56,17 @@ CREATE TABLE comentario (
   CONSTRAINT id_usuario FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into usuario values (1 ,'pedro', '123', 'pedro@reno.com', 'adm');
+insert into usuario values (1, 'pedro', '123', 'pedro@reno.com', 'adm');
+insert into usuario values(6, 'teste', '123', 'teste@teste', 'user');
+insert into usuario (nome_usuario, senha_usuario, email_usuario, papel_usuario) values ('robertin', '123', 'teste@teste', 'user');
 
-select * from usuario;
 
 insert into categoria (nome_categoria) values('taekwondo');
 insert into categoria (nome_categoria) values('brucelee');
 insert into categoria (nome_categoria) values('filmes');
 insert into categoria (nome_categoria) values('esporte');
+
+select * from usuario;
 
 select * from categoria;
 
@@ -71,5 +74,16 @@ select * from post;
 
 select * from categoriapost;
 
+select * from comentario;
+
+DELETE FROM post WHERE id_post BETWEEN 0 AND 100;
+
+delete from post where id_post between 0 and 100;
+
+insert into comentario (id_post, id_usuario, texto_comentario) values (23, 1, 'Cara que divertido adorei!');
+insert into comentario (id_post, id_usuario, texto_comentario) values (23, 6, 'Mas que belo lixo!');
+insert into comentario (id_post, id_usuario, texto_comentario) values (23, 7, 'Conteúdo impecável! Realmente ta de parabens');
+
+SELECT * FROM comentario WHERE id_comentario = 23;
 
 

@@ -15,6 +15,13 @@ public class ServiceUsuario implements InterServiceUsuario {
     }
 
     @Override
+    public Usuario findById(int idUsuario) {
+        InterUsuarioDAO uDAO = new UsuarioDAO();
+        Usuario user = uDAO.findById(idUsuario);
+        return user;
+    }
+
+    @Override
     public Usuario findByName(String nome) {
         InterUsuarioDAO uDAO = new UsuarioDAO();
         Usuario usuario = uDAO.findByName(nome);

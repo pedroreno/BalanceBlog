@@ -33,10 +33,6 @@ public class UsuarioDAO implements InterUsuarioDAO {
         }
     }
 
-
-
-
-
     @Override
     public Usuario insert(Usuario usuario) {
         try{
@@ -77,6 +73,7 @@ public class UsuarioDAO implements InterUsuarioDAO {
                 usuario.setNome(rs.getString("nome_usuario"));
                 usuario.setSenha(rs.getString("senha_usuario"));
                 usuario.setEmail(rs.getString("email_usuario"));
+                usuario.setPapel(rs.getString("papel_usuario"));
 
                 sql.close();
                 rs.close();
@@ -106,6 +103,7 @@ public class UsuarioDAO implements InterUsuarioDAO {
                 usuario.setNome(rs.getString("nome_usuario"));
                 usuario.setSenha(rs.getString("senha_usuario"));
                 usuario.setEmail(rs.getString("email_usuario"));
+                usuario.setPapel(rs.getString("papel_usuario"));
 
                 sql.close();
                 rs.close();

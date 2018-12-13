@@ -1,33 +1,21 @@
-<%@ page import="model.Usuario" %>
 <%@ page import="model.Post" %>
-<%@ page import="java.util.List" %>
-<%@ page import="static java.lang.System.out" %>
-<%@ page import="model.service.interfacesService.InterServicePost" %>
+<%@ page import="model.Usuario" %>
 <%@ page import="model.service.ServicePost" %>
-<%@ page import="static java.lang.System.setOut" %>
-<%@ page import="controller.Servlet" %><%--
+<%@ page import="model.service.interfacesService.InterServicePost" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Collections" %>
+<%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 18/09/2018
   Time: 15:29
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <%
-    String contexto = request.getContextPath();
-    if(!contexto.equals("")) contexto += "/";
-
     Usuario usuarioLogado     = (Usuario) session.getAttribute("usuarioLogado");
-    int idUsuarioLogado       = usuarioLogado.getId();
     String papelUsuarioLogado = usuarioLogado.getPapel();
-%>
-<%!
-
-    public void redirecionarPost(int idPost) {
-        Servlet.DirecionarPost dp = new Servlet.DirecionarPost();
-
-    }
 %>
 <html>
 <head>
@@ -36,18 +24,21 @@
     <!--definindo a descrição do site-->
     <meta name="description" content="Blog sobre artes marciais">
     <!--renderizando todos os elementos mais consistentemente e os alinhando aos padrões modernos-->
-    <link rel="stylesheet" href="${contexto}stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
     <!--linkando com a folha de estilo-->
-    <link rel="stylesheet" href="${contexto}stylesheets/home.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
+    <!--linkando com scripts-->
+    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/home.js"></script>
 
 
 </head>
-<body onload="setarBotoes()">
-<div id="${papelUsuarioLogado}" class="qDificil"></div>
+<body>
+<div id="<%=papelUsuarioLogado%>" class="qDificil"></div>
 <div id="divGeral">
 
 
@@ -77,6 +68,7 @@
             <%
                 InterServicePost sPost = new ServicePost();
                 List<Post> posts = sPost.findAll();
+                Collections.reverse(posts);
 
                 for(Post p:posts){%>
 
@@ -84,6 +76,7 @@
             <%
                 }
             %>
+
 
         </div>
 
@@ -106,31 +99,5 @@
     </footer>
 
 </div>
-
-<!--linkando com scripts-->
-<script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="${contexto}scripts/home.js"></script>
-
-<script>
-
-
-    function setarBotoes() {
-        var button = $(".btnPost")
-        alert("Estou no setarBotoes :)");
-        $('#divPosts').on('click', button,function () {
-
-            $.ajax({
-                method: 'post',
-                url: '/DirecionarPost.action',
-                data: {
-                    idPost: $(this).attr(id)
-                }
-            });
-
-            alert("O ZÉ É GAY");
-        });
-    }
-
-</script>
 </body>
 </html>

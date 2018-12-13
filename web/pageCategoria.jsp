@@ -1,24 +1,24 @@
-<%@ page import="model.Usuario" %>
+<%@ page import="model.Categoria" %>
+<%@ page import="model.CategoriaPost" %>
 <%@ page import="model.Post" %>
-<%@ page import="java.util.List" %>
-<%@ page import="static java.lang.System.out" %>
-<%@ page import="model.service.interfacesService.InterServicePost" %>
+<%@ page import="model.Usuario" %>
+<%@ page import="model.service.ServiceCategoriaPost" %>
 <%@ page import="model.service.ServicePost" %>
-<%@ page import="static java.lang.System.setOut" %><%--
+<%@ page import="model.service.interfacesService.InterServiceCategoriaPost" %>
+<%@ page import="model.service.interfacesService.InterServicePost" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 18/09/2018
   Time: 15:29
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <%
-    String contexto = request.getContextPath();
-    if(!contexto.equals("")) contexto += "/";
-
     Usuario usuarioLogado     = (Usuario) session.getAttribute("usuarioLogado");
-    int idUsuarioLogado       = usuarioLogado.getId();
     String papelUsuarioLogado = usuarioLogado.getPapel();
 %>
 <html>
@@ -28,20 +28,20 @@
     <!--definindo a descrição do site-->
     <meta name="description" content="Blog sobre artes marciais">
     <!--renderizando todos os elementos mais consistentemente e os alinhando aos padrões modernos-->
-    <link rel="stylesheet" href="${contexto}stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
     <!--linkando com a folha de estilo-->
-    <link rel="stylesheet" href="${contexto}stylesheets/home.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
-    <script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="${contexto}scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/pageCategoria.js"></script>
 
 </head>
 <body>
-<div id="${papelUsuarioLogado}" class="qDificil"></div>
+<div id="<%=papelUsuarioLogado%>" class="qDificil"></div>
 <div id="divGeral">
 
 
@@ -69,15 +69,34 @@
         <div id="divPosts">
 
             <%
+                InterServiceCategoriaPost sCategoriaPost = new ServiceCategoriaPost();
                 InterServicePost sPost = new ServicePost();
-                List<Post> posts = sPost.findAll();
 
-                for(Post p:posts){%>
+                Categoria categoriaSelecionada = (Categoria) session.getAttribute("categoriaSelecionada");
+                System.out.println(categoriaSelecionada.getNome());
 
-            <%=p.printarPost()%>
-            <%
-                }
-            %>
+                if(categoriaSelecionada == null) {
+                    System.out.println("CATEGORIA ESTÁ VAZIA");
+                } else {
+                    List<CategoriaPost> categoriaPosts = sCategoriaPost.findByIdCategoria(categoriaSelecionada.getId());
+                    List<Post> posts = new ArrayList();
+
+                    for(CategoriaPost cp:categoriaPosts) {
+                        Post post = sPost.findById(cp.getIdPost());
+                        posts.add(post);
+                    }
+
+                    Collections.reverse(posts);
+
+                    for(Post p:posts){%>
+
+                        <%=p.printarPost()%>
+                    <%}%>
+
+                <%}%>
+
+
+
 
             <!--
             <article class="post">

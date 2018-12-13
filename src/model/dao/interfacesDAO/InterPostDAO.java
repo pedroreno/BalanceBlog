@@ -8,7 +8,7 @@ public interface InterPostDAO {
     void insert(Post post);
     Post findById(int id);
     Post findByTitulo(String titulo);
-    Post findByCategoria(String categoria);
+    List<Post> findByCategoria(String categoria);
     List<Post> findAll();
     Post update(Post postAnterior, Post postAtual);
     void deleteById(int idPost);

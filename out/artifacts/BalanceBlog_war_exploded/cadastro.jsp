@@ -7,11 +7,6 @@
 --%>
 <%@ page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 
-<%
-    String contexto = request.getContextPath();
-    if(!contexto.equals("")) contexto += "/";
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +15,16 @@
     <!--definindo a descrição do site-->
     <meta name="description" content="Blog sobre artes marciais">
     <!--renderizando todos os elementos mais consistentemente e os alinhando aos padrões modernos-->
-    <link rel="stylesheet" type="text/css" href="${contexto}stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
     <!--linkando com a folha de estilo-->
-    <link rel="stylesheet" type="text/css" href="${contexto}stylesheets/cadastro.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/cadastro.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="imagens/tomato_red.png">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
-    <script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="${contexto}scripts/"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/cadastro.js"></script>
 
 </head>
 

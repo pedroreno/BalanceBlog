@@ -96,4 +96,22 @@ $(document).ready(function () {
         }
 
     });
+    //---------------------------------------------------------------
+
+    //REDIRECIONANDO PARA A PAGINA DE CATEGORIA
+    $(".tag").on('click', function () {
+        var tag = $(this).text();
+
+        alert("PQ NÃO FUNCIONA VELHO");
+
+        $.ajax({
+            method: 'post',
+            url: '/DirecionarPaginaCategoria.action',
+            data: {tag: tag}
+        });
+
+
+        window.location.assign("pageCategoria.jsp");
+
+    });
 });

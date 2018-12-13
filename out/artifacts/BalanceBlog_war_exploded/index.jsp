@@ -24,7 +24,7 @@
     <!--linkando com a folha de estilo-->
     <link rel="stylesheet" type="text/css" href="${contexto}stylesheets/login.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="imagens/tomato_red.png">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->

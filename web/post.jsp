@@ -1,5 +1,10 @@
+<%@ page import="model.Comentario" %>
 <%@ page import="model.Post" %>
-<%@ page import="controller.Servlet" %><%--
+<%@ page import="model.Usuario" %>
+<%@ page import="model.service.ServiceComentario" %>
+<%@ page import="model.service.interfacesService.InterServiceComentario" %>
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 25/11/2018
@@ -8,8 +13,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String contexto = request.getContextPath();
-    if(!contexto.equals("")) contexto += "/";
+
+    Usuario usuarioLogado     = (Usuario) session.getAttribute("usuarioLogado");
+    String papelUsuarioLogado = usuarioLogado.getPapel();
 %>
 <html>
 <head>
@@ -18,20 +24,20 @@
     <!--definindo a descrição do site-->
     <meta name="description" content="Blog sobre artes marciais">
     <!--renderizando todos os elementos mais consistentemente e os alinhando aos padrões modernos-->
-    <link rel="stylesheet" href="${contexto}stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
     <!--linkando com a folha de estilo-->
-    <link rel="stylesheet" href="${contexto}stylesheets/post.css">
+    <link rel="stylesheet" href="stylesheets/post.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
-    <script type="text/javascript" src="${contexto}scripts/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="${contexto}scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/post.js"></script>
 
 </head>
 <body>
-<div id="${papelUsuarioLogado}" class="qDificil"></div>
+<div id="<%=papelUsuarioLogado%>" class="qDificil"></div>
 <div id="divGeral">
 
 
@@ -57,12 +63,19 @@
     <div id="divCorpo">
 
         <div id="divPosts">
+
             <%
-                Servlet servlet = new Servlet();
-                Post post = servlet.getPostSelecionado();
-                post.printarPaginaPost();
+                InterServiceComentario sComentario = new ServiceComentario();
+
+                Post postSelecionado  = (Post) session.getAttribute("postSelecionado");
+
+                List<Comentario> comentarios = sComentario.findByPostID(postSelecionado.getId());
             %>
-            <!--<div class="tituloPost">
+
+            <%=postSelecionado.printarPaginaPost()%>
+
+            <!--
+            <div class="tituloPost">
                 <h1 class="titulo">TITULO DO POST</h1>
             </div>
 
@@ -84,6 +97,51 @@
                 <a class="tag">#Taekwondo</a><a class="tag">#História</a>
             </footer>
             -->
+
+            <div class="divTodosComentarios">
+
+                <h1>COMENTARIOS</h1>
+                <%
+                    for(Comentario c:comentarios){%>
+
+                        <%if(papelUsuarioLogado.equals("adm")){%>
+
+                            <%=c.printarComentarioADM()%>
+
+                        <%} else {%>
+
+                            <%=c.printarComentario()%>
+
+                         <%}%>
+
+                <%}%>
+
+
+                <!--
+                <div class="divComentario">
+
+                    <h1 class="nomeUsuarioComentario">JOSUEL</h1>
+                    <p class="comentarioUsuario">gostei do post a informação é muito boa mesmo curti e compartilhei</p>
+
+                </div>
+                -->
+
+                <form action="/AdicionarComentario.action" class="divCriarComentario">
+
+                    <h3>FAÇA SEU COMENTÁRIO</h3>
+
+                    <textarea name="textoComentario" class="comentario" required placeholder="Digite seu comentario aqui"></textarea>
+
+                    <button type="submit" class="btnEnviarComentario">enviar</button>
+
+                    <span name="erroComentario">${erro}</span>
+
+                </form>
+
+            </div>
+
+
+
         </div>
 
 

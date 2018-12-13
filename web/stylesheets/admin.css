@@ -128,3 +128,16 @@ textarea:focus {
     height: 300px;
 }
 
+/*----------------------------------------LISTAR USUARIOS----------------------------------------------------*/
+#divListarUsuarios {
+    position: relative;
+    display: block;
+}
+.divUsuario {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 15%;
+    margin: 5px;
+}
+

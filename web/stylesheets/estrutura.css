@@ -12,7 +12,7 @@
 #topo {
     height: 200px;
     width: 100%;
-    background-image: url("../imagens/topo.jpg");
+    background-image: linear-gradient(#e3170a, #32292f);
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;
@@ -109,12 +109,10 @@ body {
 /*---------------------------------------------------------divPosts--------------------------------------------------------------*/
 
 #divPosts {
-    margin: 60px;
-    margin-top: 80px;
-    margin-right: 0;
+    margin: 80px 0 10px 60px;
     display: block;
     width: 65%;
-    height: 1000px;
+    height: 220%;
     float: left;
     text-align: center;
     overflow: auto;

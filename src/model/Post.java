@@ -5,11 +5,8 @@ import model.service.ServiceCategoriaPost;
 import model.service.interfacesService.InterServiceCategoria;
 import model.service.interfacesService.InterServiceCategoriaPost;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.System.out;
 
 public class Post{
     private int id, idUsuario;
@@ -39,20 +36,20 @@ public class Post{
         }
 
 
-        article += " <form class='post'>\n";
+        article += " <form action='/DirecionarPost.action' class='post'>\n";
         article += "   <div class='tituloPost'><h1 class='titulo'>" + this.getTitulo() + "</h1></div>\n";
         article += "   <div id='img' style='background: url(\"/imagens/" + this.getImagem() + "\") no-repeat center' ></div>\n";
         article += "   <p>" + this.getTexto() + "</p>\n";
-        article += "   <button name='" + this.getId() + "' class='btnPost'>Ler mais</button>\n";
+        article += "   <button type='submit' class='btnPost'>Ler mais</button>\n";
+        article += "   <input type='hidden' name='idPost' value='" + this.getId() + "'>\n";
         article += "   <footer class='rodapePost'>\n";
         article += "   <h3>Categorias:</h3>\n";
         if(categorias == null) System.out.println("CATEGORIAS ESTÁ VAZIO");
-        else for(Categoria c:categorias) article += " <a id='" + c.getId() +"' class='tag'>#" + c.getNome() + "</a>";
+        else for(Categoria c:categorias) article += " <a id='" + c.getId() +"' class='tag'>" + c.getNome() + "</a>";
         article += "\n   </footer>\n";
         article += " </form>";
         article += "<br/><br/><br/>";
 
-        System.out.println(article);
         return article;
     }
 
@@ -73,17 +70,14 @@ public class Post{
         pagina += "  <h1 class='titulo'>" + this.getTitulo() + "</h1>\n";
         pagina += "</div>\n";
         pagina += "<div id='img' style='background: url(\"/imagens/" + this.getImagem() + "\") no-repeat center' ></div>\n";
-        pagina += "<p></p>\n";
+        pagina += "<p>" + this.getTexto() + "</p>\n";
         pagina += "<footer class='rodapePost'>\n";
         pagina += "  <h3>Categorias:</h3>\n";
         if(categorias == null) System.out.println("CATEGORIAS ESTÁ VAZIO");
-        else for(Categoria c:categorias) pagina += " <a id='" + c.getId() +"' class='tag'>#" + c.getNome() + "</a>";
+        else for(Categoria c:categorias) pagina += " <a id='" + c.getId() +"' class='tag'>" + c.getNome() + "</a>";
         pagina += "\n</footer>";
 
-        System.out.println(pagina);
-
         return pagina;
-
     }
 
     public int getId() { return id; }

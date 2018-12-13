@@ -7,4 +7,5 @@ import java.util.List;
 public interface InterServiceCategoriaPost {
     void insert(CategoriaPost categoriaPost);
     List<CategoriaPost> findByIdPost(int idPost);
+    List<CategoriaPost> findByIdCategoria(int idCategoria);
 }

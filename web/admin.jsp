@@ -1,6 +1,8 @@
 <%@ page import="model.Usuario" %>
+<%@ page import="model.service.ServiceUsuario" %>
+<%@ page import="model.service.interfacesService.InterServiceUsuario" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Pedro Guerrero
   Date: 19/11/2018
@@ -23,7 +25,7 @@
     <!--linkando com a folha de estilo-->
     <link rel="stylesheet" href="${contexto}stylesheets/admin.css">
     <!--definindo icone da página-->
-    <link rel="icon" href="">
+    <link rel="icon" href="imagens/yin-yang.png">
     <!--definindo título da página-->
     <title>Balance blog</title>
     <!--linkando com scripts-->
@@ -82,7 +84,7 @@
                     <input type="file" name="imagemPostAdd" id="imgPost" required>
 
                     <h3>Título</h3>
-                    <input type="text" name="tituloPostAdd" id="tituloPost" required>
+                    <input type="text" name="tituloPostAdd" id="tituloPost" maxlength="45" required>
 
                     <h3>Conteúdo</h3>
                     <textarea name="conteudoPostAdd" id="textoPost" required></textarea>
@@ -93,6 +95,7 @@
                         <option class="opCategorias" value="brucelee">Bruce Lee</option>
                         <option class="opCategorias" value="filmes">Filmes</option>
                         <option class="opCategorias" value="esporte">Esporte</option>
+                        <option class="opCategorias" value="historia">História</option>
                     </select>
 
                     <br/>
@@ -121,8 +124,16 @@
 
             <!--LISTAR USUARIOS-->
 
-            <div class="divsGerencia" id="divListarUsuarios">
+            <div id="divListarUsuarios">
+                <%
+                    InterServiceUsuario sUsuario = new ServiceUsuario();
+                    List<Usuario> usuarios = sUsuario.findAll();
 
+                    for(Usuario u:usuarios) {%>
+
+                        <%=u.printarUsuario()%>
+
+                <%}%>
             </div>
 
             <!--EXCLUIR USUARIO-->

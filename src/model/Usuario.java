@@ -14,9 +14,27 @@ public class Usuario{
         this.setPapel(papel);
     }
 
-    public String getPapel() { return papel; }
+    public String printarUsuario() {
+        String usuario = "";
 
-    public void setPapel(String papel) { this.papel = papel; }
+        usuario += "<div class='divUsuario'>\n";
+        usuario += "  <h3>Id: " + this.getId() + "</h3>\n";
+        usuario += "  <h3>Nome: " + this.getNome() + "</h3>\n";
+        usuario += "  <h3>Email: " + this.getEmail() + "</h3>\n";
+        usuario += "  <h3>Papel: " + this.getPapel() + "</h3>\n";
+        usuario += "</div>";
+        usuario += "<h1>______________________________________</h1>\n";
+
+        return usuario;
+    }
+
+    public String getPapel() {
+        return papel;
+    }
+
+    public void setPapel(String papel) {
+        this.papel = papel;
+    }
 
     public int getId() { return id; }
 

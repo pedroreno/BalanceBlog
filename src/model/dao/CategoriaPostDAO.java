@@ -1,6 +1,5 @@
 package model.dao;
 
-import model.Categoria;
 import model.CategoriaPost;
 import model.dao.interfacesDAO.InterCategoriaPostDAO;
 
@@ -76,6 +75,31 @@ public class CategoriaPostDAO implements InterCategoriaPostDAO {
 
         } catch(SQLException e) {
             System.out.println("Erro de conexão... findByIdPost CategoriaPostDAO");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<CategoriaPost> findByIdCategoria(int idCategoria) {
+        List<CategoriaPost> cp = new ArrayList();
+
+        try {
+            PreparedStatement sql = conexao.prepareStatement("SELECT * FROM categoriapost WHERE id_categoria = ?");
+            sql.setInt(1, idCategoria);
+            ResultSet rs = sql.executeQuery();
+            System.out.println("Conectado... findByIdCategoria CategoriaPostDAO");
+
+            while(rs.next()) {
+                CategoriaPost novo = new CategoriaPost();
+                novo.setIdPost(rs.getInt("id_post"));
+                novo.setIdCategoria(rs.getInt("id_categoria"));
+                cp.add(novo);
+            }
+            return cp;
+
+        } catch(SQLException e) {
+            System.out.println("Erro de conexão... findByIdCategoria CategoriaPostDAO");
             e.printStackTrace();
         }
         return null;

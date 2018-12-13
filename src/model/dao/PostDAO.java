@@ -3,7 +3,6 @@ package model.dao;
 import model.Post;
 import model.dao.interfacesDAO.InterPostDAO;
 
-import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -120,7 +119,7 @@ public class PostDAO implements InterPostDAO {
     }
 
     @Override
-    public Post findByCategoria(String categoria) {
+    public List<Post> findByCategoria(String categoria) {
         return null;
     }
 
